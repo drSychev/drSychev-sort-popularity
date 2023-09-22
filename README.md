@@ -10,3 +10,19 @@ Check out [Spicetify's docs](https://spicetify.app/docs/development/spicetify-cr
 
 ## Building
 See [Spicetify's docs Building And Testing](https://spicetify.app/docs/development/spicetify-creator/building-and-testing)
+
+
+## Install
+
+### Linux
+```
+cd ~/.config/spicetify/Extensions/ && 
+wget https://raw.githubusercontent.com/drSychev/drSychev-sort-popularity/master/dist/sort-popularity.js && 
+spicetify config extensions sort-popularity.js && spicetify apply
+```
+### Windows
+```
+cd %appdata%\spicetify\Extensions\ && 
+wget https://raw.githubusercontent.com/drSychev/drSychev-sort-popularity/master/dist/sort-popularity.js && 
+spicetify config extensions sort-popularity.js && spicetify apply
+```
