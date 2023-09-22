@@ -1,5 +1,6 @@
 # Sort Popularity
 Spicetify extension for sorting artist tracks by popularity
+![148688938-902790de-3592-44b1-8f4e-f6240d059e44](https://github.com/drSychev/drSychev-sort-popularity/assets/48390901/cce89c9b-aa2f-4616-857b-6e297c15eac8)
 
 ## Docs
 Check out [Spicetify's docs](https://spicetify.app/docs/development/spicetify-creator/the-basics)!
