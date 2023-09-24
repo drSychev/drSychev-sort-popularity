@@ -30,8 +30,28 @@ async function addToQueue(uris) {
     for (const albumTrack of albumTracks) {
         tracks = tracks.concat(albumTrack.tracks.items)
     }
+
+    tracks =  getUniqueTracks(tracks)
     let sortTracks = sortByPopularity(tracks);
     addToNext(sortTracks)
+}
+
+function getUniqueTracks(tracks: Spicetify.Track[]) :Spicetify.Track[] {
+    let uniqueTracks :Map<string, Track>  = new Map();
+    tracks.map(function (t) {
+        let key = t.track.name + "|" + t.track.playcount
+        if (!uniqueTracks.has(key)) {
+            uniqueTracks.set(key, t)
+        }
+
+        if (uniqueTracks.has(key)) {
+            let diffDuration = uniqueTracks.get(key).track.duration.totalMilliseconds - t.track.duration.totalMilliseconds
+            if (Math.abs(diffDuration) > 10000) {
+                uniqueTracks.set(key, t)
+            }
+        }
+    })
+    return Array.from(uniqueTracks.values())
 }
 
 async function getArtistDiscographyAll(overview: ArtistDiscographyOverview): Promise<ArtistDiscographyAll> {
